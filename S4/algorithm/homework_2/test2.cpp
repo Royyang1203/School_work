@@ -65,9 +65,9 @@ using namespace std;
 /*Driver program to test maxSubArraySum*/
 int main()
 {
-    int n = 100;
+    int n = 1000;
     int arr[n];
-    std::srand(9);
+    std::srand(1);
     for (int i = 0; i < n; ++i)
         arr[i] = rand() % 100 - 50;
     int max_sum = maxSubArraySum(arr, 0, n - 1);

@@ -139,18 +139,18 @@ float closest(Point P[], int n)
 // Driver code
 int main()
 {
-    // srand(9);
-    // int n = 200;
-    // int k = 1000;
+    srand(9);
+    int n = 200;
+    int k = 1000;
 
-    // Point P[n];
-    // for (int i = 0; i < n; ++i)
-    // {
-    //     P[i] = {rand() % k, rand() % k};
-    // }
+    Point P[n];
+    for (int i = 0; i < n; ++i)
+    {
+        P[i] = {rand() % k, rand() % k};
+    }
 
-    Point P[] = {{0, 2}, {6, 67}, {43, 71}, {39, 107}, {189, 140}};
-    int n = sizeof(P) / sizeof(P[0]);
+    // Point P[] = {{0, 2}, {6, 67}, {43, 71}, {39, 107}, {189, 140}};
+    // int n = sizeof(P) / sizeof(P[0]);
     cout << "The smallest distance is " << closest(P, n);
     return 0;
 }

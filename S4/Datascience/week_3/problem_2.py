@@ -16,11 +16,14 @@ def getPrimeList(n):
 
 def main():
 
-    list_char = ['AA', 'BB', 'CC', 'DD', 'EE',
-                 'FF', 'GG', 'HH', 'II', 'JJ', 'KK']
-    prime_list = getPrimeList(12)
+    list_char = []
 
-    print([list_char[i] for i in range(11) if prime_list[i]])
+    for i in range(14):
+        list_char += [str(input())]
+
+    prime_list = getPrimeList(14)
+
+    print([list_char[i] for i in range(13) if prime_list[i]])
 
 
 if __name__ == "__main__":

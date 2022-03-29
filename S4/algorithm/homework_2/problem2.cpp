@@ -134,28 +134,22 @@ int main()
 {
     // Point P[] = {{2, 3}, {12, 30}, {40, 50}, {5, 1}, {12, 10}, {3, 4}};
     // Point P[] = {{0, 0}, {-2, 0}, {4, 0}, {1, 1}, {3, 3}, {-2, 2}, {5, 2}};
-    Point P[] = {{0, 2}, {6, 67}, {43, 71}, {39, 107}, {189, 140}};
-    int n = sizeof(P) / sizeof(P[0]);
+    // Point P[] = {{0, 2}, {6, 67}, {43, 71}, {39, 107}, {189, 140}};
+    // int n = sizeof(P) / sizeof(P[0]);
 
-    // srand(9);
-    // int n = 200;
-    // int k = 1000;
+    srand(9);
+    int n = 200;
+    int k = 1000;
 
-    // Point P[n];
-    // for (int i = 0; i < n; ++i)
-    // {
-    //     P[i] = {rand() % k, rand() % k};
-    // }
+    Point P[n];
+    for (int i = 0; i < n; ++i)
+    {
+        P[i] = {rand() % k, rand() % k};
+    }
 
-    // sort(P, P + n, compareX);
-    // for (int i = 0; i < n; ++i)
-    // {
-    //     cout << "(" << P[i].x << ", " << P[i].y << ")"
-    //          << " ";
-    // }
     pair<Point, Point> bipoint = closest(P, n);
     cout << "The smallest pair is "
-         << "(" << bipoint.first.x << ", " << bipoint.first.y << ")"
+         << "(" << bipoint.first.x << ", " << bipoint.first.y << ") and "
          << "(" << bipoint.second.x << ", " << bipoint.second.y << ")"
          << ", distance is " << dist(bipoint);
     return 0;

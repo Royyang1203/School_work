@@ -20,6 +20,8 @@ for i in range(6):
     target = df[(df.loc[:, 'High school system'] == res.loc[res.index[i], 'High school system']) &
                 (df.loc[:, 'Gender'] == res.loc[res.index[i], 'Gender'])]
 
+    print(target)
+    target.to_csv(str(i) + '.csv')
     res.loc[res.index[i], 'Num of graduates'] = \
         target.loc[:, 'Num of graduates'].sum()
 
@@ -38,9 +40,9 @@ for i in range(6):
         '{:.2f}'.format(round(res.loc[res.index[i], 'enroll in police college'] /
                               res.loc[res.index[i], 'Num of graduates'], 4) * 100) + '%'
     res.loc[res.index[i], 'Military school enrollment rate'] = \
-        '{:.2f}'.format(round(target.loc[:, 'Num of enroll in military school'].max() /
+        '{:.2f}'.format(round(target.loc[:, 'Num of enroll in military school'].sum() /
                               res.loc[res.index[i], 'Num of graduates'], 4) * 100) + '%'
 
 
 print(res)
-# res.to_csv('result.csv')
+res.to_csv('result.csv')

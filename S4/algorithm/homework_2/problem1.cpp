@@ -44,7 +44,7 @@ std::pair<int, int> maxCrossingSum(int arr[], int left, int mid, int right)
     }
     if (max(left_sum + right_sum, left_sum, right_sum) == left_sum)
         return std::pair<int, int>(lindex, mid);
-    if (max(left_sum + right_sum, left_sum, right_sum) == right_sum)
+    else if (max(left_sum + right_sum, left_sum, right_sum) == right_sum)
         return std::pair<int, int>(mid, rindex + 1);
     else
         return std::pair<int, int>(lindex, rindex + 1);
@@ -64,7 +64,7 @@ std::pair<int, int> maxSubArraySum(int arr[], int left, int right)
     std::pair<int, int> m = maxCrossingSum(arr, left, mid, right);
     if (max(sum(arr, l), sum(arr, r), sum(arr, m)) == sum(arr, l))
         return l;
-    if (max(sum(arr, l), sum(arr, r), sum(arr, m)) == sum(arr, r))
+    else if (max(sum(arr, l), sum(arr, r), sum(arr, m)) == sum(arr, r))
         return r;
     else
         return m;
@@ -74,9 +74,9 @@ using namespace std;
 
 int main()
 {
-    int n = 100;
+    int n = 1000;
     int arr[n];
-    srand(9);
+    srand(1);
     for (int i = 0; i < n; ++i)
         arr[i] = rand() % 100 - 50;
 
@@ -84,6 +84,6 @@ int main()
     // int n = sizeof(arr) / sizeof(arr[0]);
     pair<int, int> res = maxSubArraySum(arr, 0, n);
     cout << "maximum subarray index (" << res.first << ", " << res.second << ")" << endl;
-    printf("Maximum contiguous sum is %d\n", sum(arr, res));
+    cout << "maximum subarray sum is " << sum(arr, res) << endl;
     return 0;
 }
