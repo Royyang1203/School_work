@@ -1,4 +1,7 @@
+from copy import deepcopy
 import numpy as np
+import copy
+
 
 data = [['CITYA1', 128], ['CITYA2', 32], ['CITYA3', 11], ['CITYA4', 20]]
 
@@ -16,11 +19,7 @@ print(res)
 
 # =====================================
 
-a = 4
-print(type(a))
-a = (1, 2, 3)
-print(type(a))
-a = [1, 2, 3]
-print(type(a))
-a[0] = 0
-print(type(a))
+a = [1, [6, 6, 6], 3]
+b = copy.deepcopy(a)
+b[1][0] = 5
+print(a, b, sep="\n")

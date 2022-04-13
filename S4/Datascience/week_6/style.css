@@ -2,6 +2,10 @@ div {
     display: block;
 }
 
+body {
+    background-color: azure;
+}
+
 .container {
     display: flexbox;
     width: 100%;
@@ -37,7 +41,7 @@ a {
     text-transform: capitalize;
     outline: none;
     text-decoration: none;
-    color: #222;
+    color: rgb(0, 73, 209);
 }
 
 .nav-menu>li {
@@ -48,7 +52,7 @@ a {
 }
 
 .intro {
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .minner {
@@ -65,13 +69,28 @@ a {
 
 .item {
     display: block;
+    box-sizing: border-box;
     float: left;
     width: 50%;
     height: 100%;
+    border: 3px solid rgb(110, 4, 4);
+    border-radius: 20px;
+    background-color: rgb(255, 237, 200);
+}
+
+.item:hover {
+    background-color: rgb(255, 247, 170);
+    transform: scale(1.1);
 }
 
 p {
     text-indent: 30px;
+    font-size: 25px;
+}
+
+h1 {
+    font-size: 40px;
+    color: rgb(78, 0, 0);
 }
 
 .item p {

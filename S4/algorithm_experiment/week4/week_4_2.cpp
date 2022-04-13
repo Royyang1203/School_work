@@ -58,7 +58,7 @@ double closest_DC(Point Px[], int n, int left, int right)
     double dr = closest_DC(Px, n, mid, right);
     double d = min(dl, dr);
 
-    Point strip[right - left + 1];
+    Point strip[right - left];
     int j = 0;
     for (int i = mid - 1; i >= left && midPoint.x - Px[i].x < d; --i)
         strip[j++] = Px[i];
