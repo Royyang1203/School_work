@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cstring>
 #include <iomanip>
+#include <set>
+
 using namespace std;
 
 void print_get_item(int *price, int *p, int i, int j, int m)
@@ -23,9 +25,32 @@ int knapsack_recur(int *v, int *w, int i, int j)
     if (i == 0)
         return 0;
     else if (w[i - 1] <= j)
+    {
+
         return max(knapsack_recur(v, w, i - 1, j), v[i - 1] + knapsack_recur(v, w, i - 1, j - w[i - 1]));
+    }
     else
         return knapsack_recur(v, w, i - 1, j);
+}
+
+pair<int, set<int>> max(pair<int, set<int>> &a, pair<int, set<int>> &that)
+{
+    return a.first > that.first ? a : that;
+}
+
+pair<int, set<int>> knapsack_recur_set(int *v, int *w, int i, int j)
+{
+    if (i == 0)
+        return pair<int, set<int>>(0, {});
+    else if (w[i - 1] <= j)
+    {
+        pair<int, set<int>> a = knapsack_recur_set(v, w, i - 1, j - w[i - 1]);
+        a.second.insert(i - 1);
+        a.first += v[i - 1];
+        return max(knapsack_recur_set(v, w, i - 1, j), a);
+    }
+    else
+        return knapsack_recur_set(v, w, i - 1, j);
 }
 
 void knapsack_dp(int *v, int *w, int *dp, int n, int m)
@@ -60,6 +85,8 @@ int main()
         cin >> v[i] >> w[i];
     }
 
+    int set[n];
+    int g = 0;
     knapsack_dp(v, w, dp, n, m);
 
     // for (int i = 0; i <= n; ++i)
@@ -68,8 +95,12 @@ int main()
     //         cout << dp[i * (m + 1) + j] << " ";
     //     cout << endl;
     // }
-
-    cout << knapsack_recur(v, w, n, m) << endl;
+    cout << knapsack_recur_set(v, w, n, m).first << endl;
+    for (const auto &s : knapsack_recur_set(v, w, n, m).second)
+    {
+        std::cout << s << " ";
+    }
+    cout << endl;
     cout << "maximum preference sum -> " << dp[n * (m + 1) + m] << endl;
     cout << "choose item index -> ";
     print_get_item(w, dp, n, m, m);

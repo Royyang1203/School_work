@@ -30,10 +30,10 @@ int main()
     {
         if (n2 > 0)
             cout << endl;
-        length *= 100, carcount = 1, maxcar = 0, maxlength = 0;
-        dp[0][0] = 0;
+        carcount = 1, maxcar = 0, maxlength = 0;
         while (cin >> w[carcount] && w[carcount] != 0)
         {
+            w[carcount] /= 100;
             sum[carcount] = sum[carcount - 1] + w[carcount];
             carcount++;
         }
@@ -57,6 +57,7 @@ int main()
                 }
             }
         }
+
         cout << maxcar << endl;
         topdown(maxcar, maxlength);
         int first;
@@ -74,3 +75,14 @@ int main()
     }
     return 0;
 }
+
+// 1
+
+// 10
+// 500
+// 800
+// 200
+// 300
+// 200
+// 100
+// 0
