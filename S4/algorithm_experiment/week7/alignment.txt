@@ -1,0 +1,18 @@
+Used parameters:
+Match = 1
+Mismatch = -1
+Purine/purine or pyrimidine/pyrimidine = -2
+Gap = --1
+Extended gap = -1
+Average elapsed time = 0 - 0 [clicks - seconds].
+
+Input A:
+XGCXXGCX
+Input B:
+AGCA
+
+Alignment:
+1 A: -XGCXXG-CX 10
+1 B: A-G-C--A-- 10
+
+Alignment score: 6

@@ -1,33 +1,31 @@
 #include <iostream>
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <algorithm>
+#include <cstdio>
+#include <cstdlib>
 using namespace std;
 
 #define N 2005
-#define M 10005
 
-int w[N], sum[N], ans[N];
+int w[N], sum[N], ans[N]; // 分別為第n臺車的長度, 到第n臺的長度加總, 記錄第n臺車的答案類別
 
 int main()
 {
     int t, i, j, maxcar, m, n, maxlength;
 
-    cin >> t;
+    cin >> t; // 測資數量
     while (t--)
     {
-        cin >> m;
+        cin >> m; // 橋的長度
         m *= 100;
-        n = 0;
+        n = 0; // 車子數量
         sum[0] = 0;
-        while (cin >> maxcar, maxcar)
+        while (cin >> maxcar, maxcar) // 輸入長度, 會存在index one to n
         {
             ++n;
             w[n] = maxcar;
             sum[n] = sum[n - 1] + w[n];
         }
-        int dp[n + 1][m + 1], pre[n = 1][m + 1];
+        // 第一個二維表存放到第n臺車時，左邊的橋上總長度維m時是否可行，後一個則是其上一個狀態的左橋總長度
+        int dp[n + 1][m + 1], pre[n + 1][m + 1];
         for (int i = 0; i < n + 1; i++)
         {
             for (int j = 0; j < m + 1; j++)
@@ -35,7 +33,7 @@ int main()
                 dp[i][j] = 0;
             }
         }
-        dp[0][0] = 1; // 設為一代表此狀態可行，前項代表第幾個物件，後巷代表左邊現在長度
+        dp[0][0] = 1; // 設為一代表此狀態可行
         maxlength = -1;
         for (i = 1; i <= n; i++)
         {
@@ -57,6 +55,7 @@ int main()
                 }
             }
         }
+        // 由最大車輛數跟二維表，我們可以根據紀錄知道該臺車輛放哪邊
         i = maxcar;
         while (i--)
         {
@@ -67,6 +66,7 @@ int main()
                 ans[i] = 0;
             maxlength = j;
         }
+        // 印出答案
         cout << maxcar << endl;
         for (i = 0; i < maxcar; i++)
         {
