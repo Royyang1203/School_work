@@ -39,4 +39,6 @@ int main(void)
     n = strlen(str);
     for (int i = n - 1; i >= 0; i--)
         cout << str[i];
+
+    return 0;
 }
