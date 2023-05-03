@@ -1,0 +1,17 @@
+https://airtw.epa.gov.tw/CHT/Query/InsValue.aspx
+
+https://www.billboard.com/charts/hot-100/
+
+網球
+
+熱門文章標題
+
+https://worldpopulationreview.com/
+
+
+
+新聞標題部分如果以CSS_SELECTOR搜尋具有多個class name的element時，要以點連接多個class name
+
+
+最後面 By.LINK_TEXT 會去尋找HTML標籤為「a」的element，所以我將其修改，並新增另一個範例
+
